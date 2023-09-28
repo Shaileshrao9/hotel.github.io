@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Availability Checker</title>
+</head>
+<body>
+    <h1>Room Availability Checker</h1>
+    <label for="check-in">Check-In Date:</label>
+    <input type="date" id="check-in">
+    <br>
+    <label for="check-out">Check-Out Date:</label>
+    <input type="date" id="check-out">
+    <br>
+    <button onclick="checkAvailability()">Check Availability</button>
+    <h2>Available Rooms:</h2>
+    <ul id="room-list"></ul>
+
+    <script>
+        function checkAvailability() {
+            const checkInDate = document.getElementById("check-in").value;
+            const checkOutDate = document.getElementById("check-out").value;
+
+            const availableRooms = [
+                "Room 101",
+                "Room 102",
+                "Room 103",
+                // Add more available rooms here
+            ];
+
+            const roomList = document.getElementById("room-list");
+            roomList.innerHTML = "";
+
+            const availableRoomsForSelectedDates = availableRooms.filter(room => {
+                // Replace this with your logic to check room availability for the selected dates
+                // For example, you can compare check-in and check-out dates with room reservation data
+                // and return true if the room is available for the selected dates
+                return true;
+            });
+
+            if (availableRoomsForSelectedDates.length === 0) {
+                roomList.innerHTML = "<p>No rooms available for the selected dates</p>";
+            } else {
+                availableRoomsForSelectedDates.forEach(room => {
+                    const li = document.createElement("li");
+                    li.textContent = room;
+                    roomList.appendChild(li);
+                });
+            }
+        }
+    </script>
+</body>
+</html>
